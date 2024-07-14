@@ -1,0 +1,186 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+*{
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/*custom props*/
+:root{
+    --White: hsl(0, 0%, 100%);
+    --Light-pink: hsl(275, 100%, 97%);
+    --Grayish-purple: hsl(292, 16%, 49%);
+    --Dark-purple: hsl(292, 42%, 14%);
+    --purple: hsl(292, 89%, 31%); 
+}
+
+
+/*general styling*/
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    font-size: 1rem;
+    font-family: "Work Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    background-color: var(--Light-pink);
+  }
+  .body-background{
+    background-image: url(assets/images/background-pattern-desktop.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100vw;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+  }
+  .container{
+    padding: 0 1.5rem;
+    width: 100%;
+    max-width: 1440px;
+    min-height: 100vh;
+    margin: 0 auto;
+    display: grid;
+    place-items: center;
+  }
+
+  /*faq accordion starts here*/
+  .accordion-section{
+    width: 100%;
+    padding-top: 50px;
+  }
+  .accordion-wrapper{
+    background-color: var(--White);
+    max-width: 650px;
+    border-radius: 1rem;
+    box-shadow: 0px 3px 30px -10px;
+    padding: 40px 30px;
+  }
+  .accordion-header{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .accordion-header .star{
+    margin-right: 1rem;
+    width: auto;
+  }
+  .accordion-header .lg-text{
+    font-size: 3rem;
+    color: var(--Dark-purple);
+  }
+  .questions{
+    width: 100%;
+  }
+  details{
+    border-bottom: 2px solid var(--Light-pink);
+    padding: 10px 0;
+  }
+  details:last-child{
+    border-bottom: none;
+  }
+  details[open] .answer{
+   max-height: 100%;
+  }
+  details[open] .minus-icon{
+    display: block;
+   }
+   details[open] .plus-icon{
+    display: none;
+   }
+  summary{
+    outline: none;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--Dark-purple);
+    cursor: pointer;
+  }
+  .minus-icon{
+    display: none;
+  }
+  .answer{
+    max-height: 0;
+    transition: max-height 9s ease 5s;
+    overflow: hidden;
+    padding: 1rem 0;
+    color: var(--Grayish-purple);
+  }
+
+  .attribution{
+    text-align: center;
+    font-weight: 500;
+    margin: 20px 0;
+  }
+  .attribution a{
+    cursor: pointer;
+    color: var(--purple);
+  }
